@@ -1,5 +1,6 @@
 package com.rikin.jain.instagramcloner;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,12 +25,14 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private TextView txtGetData;
     private String allKickBoxers;
     private String allBoxerPunchSpeed;
+    private Button btnTransition;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        btnTransition = findViewById(R.id.btnTransition);
         btnSave = findViewById(R.id.btnSave);
         btnGetAll = findViewById(R.id.btnGetAll);
         btnGetBoxer = findViewById(R.id.btnGetBoxer);
@@ -95,7 +98,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                                 for(ParseObject boxer : objects){
 
                                     allBoxerPunchSpeed = allBoxerPunchSpeed + boxer.get("punch_speed")+ "\n";
-                                    
+
 
 
                                     FancyToast.makeText(SignUp.this, allBoxerPunchSpeed  +  boxer.getObjectId(), FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
@@ -111,8 +114,16 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
             }
         });
+        btnTransition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUp.this,SignUpLoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
+
 
 
     @Override
