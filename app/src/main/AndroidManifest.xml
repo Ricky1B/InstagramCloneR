@@ -20,7 +20,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpLoginActivity" />
 
         <meta-data
             android:name="com.parse.SERVER_URL"
@@ -32,7 +31,8 @@
             android:name="com.parse.CLIENT_KEY"
             android:value="@string/back4app_client_key" />
 
-        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".LogIn" />
+        <activity android:name=".SocialMedia"></activity>
     </application>
 
 </manifest>
