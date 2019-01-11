@@ -32,7 +32,8 @@
             android:value="@string/back4app_client_key" />
 
         <activity android:name=".LogIn" />
-        <activity android:name=".SocialMedia"></activity>
+        <activity android:name=".SocialMedia"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
