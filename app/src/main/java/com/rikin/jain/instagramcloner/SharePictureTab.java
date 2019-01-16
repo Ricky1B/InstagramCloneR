@@ -16,6 +16,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +56,15 @@ public class SharePictureTab extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_share_picture_tab, container, false);
         imgShare = view.findViewById(R.id.imgShare);
         edtDescription = view.findViewById(R.id.edtDescription);
+        edtDescription.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() ==KeyEvent.ACTION_DOWN){
+                    onClick(btnShareImage);
+                }
+                return false;
+            }
+        });
         btnShareImage = view.findViewById(R.id.btnShareImage);
         imgShare.setOnClickListener(SharePictureTab.this);
         btnShareImage.setOnClickListener(SharePictureTab.this);
